@@ -9,6 +9,6 @@ Plan for sending odometry over bluetooth from Arduino nano RP2040 to host (Linux
 4. Read data from BLE with rust
 5. Visualize data in 3D (probably using the Bevy game engine)
 
-Helpfull links: 
+Helpful links: 
 - https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-ble-device-to-device
 - https://docs.rs/btleplug/latest/btleplug/
