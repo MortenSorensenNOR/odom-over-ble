@@ -1,19 +1,19 @@
 #include <ArduinoBLE.h>
 
-BLEService LEDService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEService OdomService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
 // BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
-BLEByteCharacteristic LEDCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify | BLEWrite);
+BLEByteCharacteristic OdomCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify | BLEWrite);
 void setup() {
   Serial.begin(9600);
   if (!BLE.begin()) {
     Serial.println("starting Bluetooth® Low Energy failed!");
   }
-  BLE.setLocalName("Button Device");
-  BLE.setAdvertisedService(LEDService);
-  LEDService.addCharacteristic(LEDCharacteristic);
-  BLE.addService(LEDService);   
+  BLE.setLocalName("Odom device");
+  BLE.setAdvertisedService(OdomService);
+  OdomService.addCharacteristic(OdomCharacteristic);
+  BLE.addService(OdomService);   
   BLE.advertise();
-  Serial.println("BLE LED Peripheral, waiting for connections....");
+  Serial.println("BLE Odom Peripheral, waiting for connections....");
 }
 
 void loop() {
